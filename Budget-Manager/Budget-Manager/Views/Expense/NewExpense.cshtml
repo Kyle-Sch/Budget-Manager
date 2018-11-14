@@ -1,0 +1,20 @@
+﻿@model ExpensePost
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>New Book Reviews</h2>
+
+<form asp-controller="Expense" asp-action="NewExpense" method="post">
+    <label asp-for="ExpenseDescription">Expense Description: </label>
+    <input asp-for="ExpenseDescription" type="text" />
+
+    <label asp-for="ExpenseCategory">Expense Category: </label>
+    <select asp-for="ExpenseCategory" asp-items="ExpensePost.ExpenseCategories" />
+
+    <label asp-for="ExpenseAmount">Primary Income Amount: </label>
+    <input asp-for="ExpenseAmount" type="number" />
+
+    <input type="submit" value="Submit" />
+</form>

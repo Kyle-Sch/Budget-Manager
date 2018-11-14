@@ -10,8 +10,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\NewFolder1\" />
-    <Folder Include="Views\NewFolder\" />
+    <Content Update="Views\Expense\NewExpense.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Income\NewIncome.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Income\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Expense\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>

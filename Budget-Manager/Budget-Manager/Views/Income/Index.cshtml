@@ -1,0 +1,29 @@
+﻿@model IncomePost
+
+@{
+    ViewData["Title"] = "index";
+}
+
+<h2> Income Stream Board </h2>
+@if (Model.PostSuccess) {
+    <h2>Your message has been saved!</h2>
+}
+
+@{
+    for (int i = 0; i < Model.Results.Count; i++) {
+        if (i % 2 != 0) {
+            <div style="background-color: lightgray">
+                <p><b>@Model.Results[i].BudgetDescription</b></p>
+                <p>by @Model.Results[i].IncomeDescription @Model.Results[i].IncomeAmount</p>
+                <p>@Model.Results[i].IncomeCategory</p>
+                <a asp-controller="Income" asp-action="NewIncome" method="get">Post a Message</a>
+            </div>
+        }
+        else {
+            <p><b>@Model.Results[i].BudgetDescription</b></p>
+            <p>by @Model.Results[i].IncomeDescription @Model.Results[i].IncomeAmount</p>
+            <p>@Model.Results[i].IncomeCategory</p>
+            <a asp-controller="Income" asp-action="NewIncome" method="get">Post a Message</a>
+        }
+    }
+}

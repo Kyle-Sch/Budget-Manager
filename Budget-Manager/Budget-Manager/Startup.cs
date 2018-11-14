@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Budget_Manager.DAL;
+using Budget_Manager.Models;
+using Budget_Manager.Controllers;
 
 namespace Budget_Manager {
     public class Startup {
@@ -26,7 +29,10 @@ namespace Budget_Manager {
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddTransient<IExpenseDal, ExpenseSqlDal>();
+            services.AddScoped<IExpenseDal>(x => new ExpenseSqlDal(@"Data Source=.\SQLEXPRESS;Initial Catalog=Budget-Manager;Integrated Security=True"));
+            services.AddTransient<IIncomeDal, IncomeSqlDal>();
+            services.AddScoped<IIncomeDal>(x => new IncomeSqlDal(@"Data Source=.\SQLEXPRESS;Initial Catalog=Budget-Manager;Integrated Security=True"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

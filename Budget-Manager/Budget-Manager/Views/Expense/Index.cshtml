@@ -1,0 +1,31 @@
+﻿@model ExpensePost
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2> Expense Board </h2>
+@if (Model.PostSuccess) {
+    <h2>Your message has been saved!</h2>
+}
+<nav style="text-align:center">
+
+</nav>
+@{
+    for (int i = 0; i < Model.Results.Count; i++) {
+        if (i % 2 != 0) {
+            <div style="background-color: lightgray">
+                <p><b>@Model.Results[i].ExpenseDescription</b></p>
+                <p>by @Model.Results[i].ExpenseCategory @Model.Results[i].GroupId</p>
+                <p>@Model.Results[i].ExpenseAmount</p>
+                <a asp-controller="Expense" asp-action="NewExpense" method="get">Post a Message</a>
+            </div>
+        }
+        else {
+            <p><b>@Model.Results[i].ExpenseDescription</b></p>
+            <p>by @Model.Results[i].ExpenseCategory @Model.Results[i].GroupId</p>
+            <p>@Model.Results[i].ExpenseAmount</p>
+            <a asp-controller="Expense" asp-action="NewExpense" method="get">Post a Message</a>
+        }
+    }
+}
