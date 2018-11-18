@@ -1,25 +1,36 @@
-﻿@model ExpensePost
+﻿@model BudgetPost
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>New Book Reviews</h2>
-
-<a asp-controller="Expense" asp-action="Index" method="get">View the current expenses</a>
-
-<a asp-controller="Income" asp-action="NewIncome" method="get">Create a new income</a>
-<a asp-controller="Income" asp-action="Index" method="get">View all current streams of income</a>
+<h2>@Model.BudgetName</h2>
 
 <form asp-controller="Expense" asp-action="NewExpense" method="post">
-    <label asp-for="ExpenseDescription">Expense Description: </label>
-    <input asp-for="ExpenseDescription" type="text" />
 
-    <label asp-for="ExpenseCategory">Expense Category: </label>
-    <select asp-for="ExpenseCategory" asp-items="ExpensePost.ExpenseCategories" />
+    <label asp-for="BudgetId" hidden="hidden"></label>
+    <input asp-for="BudgetId" value="@Model.BudgetId" hidden="hidden" />
 
-    <label asp-for="ExpenseAmount">Primary Income Amount: </label>
-    <input asp-for="ExpenseAmount" type="number" />
+    <input type="submit" value="New Monthly Expense" />
+</form>
+<form asp-controller="Expense" asp-action="Index" method="post">
 
-    <input type="submit" value="Submit" />
+    <label asp-for="BudgetId" hidden="hidden"></label>
+    <input asp-for="BudgetId" value="@Model.BudgetId" hidden="hidden" />
+
+    <input type="submit" value="New Monthly Expense" />
+</form>
+<form asp-controller="Income" asp-action="NewIncome" method="post">
+
+    <label asp-for="BudgetId" hidden="hidden"></label>
+    <input asp-for="BudgetId" value="@Model.BudgetId" hidden="hidden" />
+
+    <input type="submit" value="New Monthly Expense" />
+</form>
+<form asp-controller="Income" asp-action="Index" method="post">
+
+    <label asp-for="BudgetId" hidden="hidden"></label>
+    <input asp-for="BudgetId" value="@Model.BudgetId" hidden="hidden" />
+
+    <input type="submit" value="New Monthly Expense" />
 </form>

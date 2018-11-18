@@ -1,4 +1,4 @@
-﻿@model Budget
+﻿@model BudgetPost
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -14,11 +14,16 @@
             <div class="@coloredClass">
                 <img class="AllParksPic" src="~/images/@Model.Results[i].ImgBudgetId" />
                 <div class="AllParksInfo">
-                    <h4><b>@Model.Results[i].BudgetCategory</b></h4>
-                    <form asp-controller="Home" asp-action="Detail" method="post">
+                    <h4><b>@Model.Results[i].BudgetName</b></h4>
+                    <p>@Model.Results[i].BudgetCategory</p>
+                    <form asp-controller="Budget" asp-action="BudgetSelect" method="post">
                         <label asp-for="BudgetId" hidden="hidden">Detail Mode: </label>
                         <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
-                        
+                        <input type="submit" value="Detail Mode" />
+                    </form>
+                    <form asp-controller="Budget" asp-action="Remove" method="get">
+                        <label asp-for="BudgetId" hidden="hidden">Detail Mode: </label>
+                        <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
                         <input type="submit" value="Detail Mode" />
                     </form>
                 </div>

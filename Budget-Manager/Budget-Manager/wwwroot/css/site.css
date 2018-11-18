@@ -35,3 +35,24 @@ body {
         display: none;
     }
 }
+
+.AllParksColoredTile {
+    background-color: lightgray
+}
+
+.AllParksInfo {
+    display: inline-block;
+    margin-left: 1em;
+    width: 50%;
+}
+
+.AllParksPic {
+    vertical-align: top;
+}
+
+.NewVoteColOne {
+    display: inline-block;
+    width: 25%;
+    margin-top: .5em;
+    margin-left: 5%;
+}

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Budget_Manager.DAL;
 using Budget_Manager.Models;
 
-namespace LyftRecorder.Controllers {
+namespace Budget_Manager.Controllers {
     public class IncomeController : Controller {
         IIncomeDal incomeDAL;
 
@@ -14,12 +14,13 @@ namespace LyftRecorder.Controllers {
             this.incomeDAL = incomeDAL;
         }
 
-        public IActionResult Index(IncomePost iPost) {
+        public IActionResult Index(BudgetPost bPost) {
+
             iPost.Results = incomeDAL.GetAllPosts();
             return View(iPost);
         }
         [HttpGet]
-        public IActionResult NewIncome() {
+        public IActionResult NewIncome(BudgetPost bPost) {
             return View();
         }
 

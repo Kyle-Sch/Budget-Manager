@@ -12,8 +12,6 @@ namespace Budget_Manager.Models {
         public string ExpenseCategory { get; set; }
         public decimal ExpenseAmount { get; set; }
         public bool IsActive { get; set; }
-        public int GroupId { get; set; }
-        public bool PostSuccess { get; set; }
 
         public IList<ExpensePost> Results { get; set; }
 

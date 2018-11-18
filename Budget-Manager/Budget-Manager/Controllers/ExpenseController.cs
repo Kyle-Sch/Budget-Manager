@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Budget_Manager.DAL;
 using Budget_Manager.Models;
 
-namespace LyftRecorder.Controllers {
+namespace Budget_Manager.Controllers {
     public class ExpenseController : Controller {
         IExpenseDal expenseDAL;
 
@@ -14,12 +14,13 @@ namespace LyftRecorder.Controllers {
             this.expenseDAL = expenseDAL;
         }
 
-        public IActionResult Index() {
+        public IActionResult Index(BudgetPost bPost) {
             return View();
         }
 
         [HttpGet]
-        public IActionResult NewExpense() {
+        public IActionResult NewExpense(BudgetPost bPost) {
+
             return View();
         }
 
@@ -28,10 +29,9 @@ namespace LyftRecorder.Controllers {
         public IActionResult NewExpense(ExpensePost ePost) {
             try {
                 expenseDAL.SaveNewPost(ePost);
-                ePost.PostSuccess = true;
             }
             catch (NullReferenceException) {
-                ePost.PostSuccess = false;
+                throw;
             }
             return RedirectToAction("Index", "Expense", ePost);
         }

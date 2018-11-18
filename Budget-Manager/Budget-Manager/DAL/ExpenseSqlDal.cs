@@ -13,12 +13,18 @@ namespace Budget_Manager.DAL {
             ConnString = connString;
         }
 
+        private const string GET_ALL_Expenses_SQL = "SELECT * from Expense";
+        private const string Insert_Expense_SQL = "INSERT INTO Expense " +
+            "VALUES (@ExpenseDescription, @ExpenseCategory, @ExpenseAmount, BudgetID);";
+        private const string Remove_Expense_SQL = "Update Expense set IsActive = @IsActive " +
+            "where ExpenseId = @ExpenseId;";
+
         public List<ExpensePost> GetAllPosts() {
             List<ExpensePost> posts = new List<ExpensePost>();
 
             using (SqlConnection conn = new SqlConnection(ConnString)) {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * from Expense", conn);
+                SqlCommand cmd = new SqlCommand(GET_ALL_Expenses_SQL, conn);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read()) {
@@ -29,9 +35,10 @@ namespace Budget_Manager.DAL {
                     temp.ExpenseCategory = Convert.ToString(reader["ExpenseCategory"]);
                     temp.ExpenseAmount = Convert.ToDecimal(reader["ExpenseAmount"]);
                     temp.IsActive = Convert.ToBoolean(reader["IsActive"]);
-                    temp.GroupId = Convert.ToInt32(reader["GroupId"]);
-                    
-                    posts.Add(temp);
+
+                    if (temp.IsActive) {
+                        posts.Add(temp);
+                    }
                 }
                 return posts;
             }
@@ -42,9 +49,8 @@ namespace Budget_Manager.DAL {
                 using (SqlConnection conn = new SqlConnection(ConnString)) {
                     conn.Open();
 
-                    string sql = $"INSERT INTO Expense VALUES (@ExpenseDescription, @ExpenseCategory, " +
-                        $"@ExpenseAmount, BudgetID);";
-                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    SqlCommand cmd = new SqlCommand(Insert_Expense_SQL, conn);
                     cmd.Parameters.AddWithValue("@ExpenseDescription", post.ExpenseDescription);
                     cmd.Parameters.AddWithValue("@ExpenseCategory", post.ExpenseCategory);
                     cmd.Parameters.AddWithValue("@ExpenseAmount", post.ExpenseAmount);
@@ -59,7 +65,30 @@ namespace Budget_Manager.DAL {
                     }
                 }
             }
-            catch (SqlException ) {
+            catch (SqlException) {
+                return false;
+            }
+
+        }
+        public bool RemovePost(ExpensePost post) {
+            try {
+                using (SqlConnection conn = new SqlConnection(ConnString)) {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(Remove_Expense_SQL, conn);
+                    cmd.Parameters.AddWithValue("@ExpenseId", post.ExpenseId);
+                    cmd.Parameters.AddWithValue("@IsActive", false);
+
+                    int rowsaffected = cmd.ExecuteNonQuery();
+                    if (rowsaffected == 1) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+            }
+            catch (SqlException) {
                 return false;
             }
         }

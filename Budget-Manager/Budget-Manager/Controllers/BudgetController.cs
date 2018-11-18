@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Budget_Manager.DAL;
 using Budget_Manager.Models;
 
-namespace LyftRecorder.Controllers {
+namespace Budget_Manager.Controllers {
     public class BudgetController : Controller {
         IBudgetDal budgetDAL;
 
@@ -14,8 +14,19 @@ namespace LyftRecorder.Controllers {
             this.budgetDAL = budgetDAL;
         }
 
-        public IActionResult Index() {
-            return View();
+        public IActionResult Index(BudgetPost bPost) {
+            bPost.Results = budgetDAL.GetAllPosts();
+            return View(bPost);
+        }
+
+        public IActionResult BudgetSelect(BudgetPost bPost) {
+
+            return View(bPost);
+        }
+
+        public IActionResult Remove(BudgetPost bPost) {
+            budgetDAL.RemovePost(bPost);
+            return RedirectToAction("Index", "Budget", bPost);
         }
 
         [HttpGet]
@@ -25,17 +36,15 @@ namespace LyftRecorder.Controllers {
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult NewBudget(Budget bPost) {
+        public IActionResult NewBudget(BudgetPost bPost) {
             try {
-                bPost.BudgetId = Budget.BudgetIds[bPost.BudgetCategory];
-                bPost.ImgBudgetId = 
+                bPost.ImgBudgetId = bPost.BudgetCategory;
                 budgetDAL.SaveNewPost(bPost);
-                bPost.PostSuccess = true;
             }
             catch (NullReferenceException) {
-                bPost.PostSuccess = false;
+                throw;
             }
-            return RedirectToAction("Index", "Expense", bPost);
+            return RedirectToAction("Index", "Budget", bPost);
         }
     }
 }

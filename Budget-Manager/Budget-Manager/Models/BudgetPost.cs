@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Budget_Manager.Models {
-    public class Budget {
+    public class BudgetPost {
         public int BudgetId { get; set; }
         private string imgBudgetId = "";
         public string ImgBudgetId {
@@ -16,11 +17,12 @@ namespace Budget_Manager.Models {
                 imgBudgetId = value.ToLower() + ".jpg";
             }
         }
+        [Required]
+        public string BudgetName { get; set; }
         public string BudgetCategory { get; set; }
         public bool IsActive { get; set; }
-        public bool PostSuccess { get; set; }
 
-        public IList<Budget> Results { get; set; }
+        public IList<BudgetPost> Results { get; set; }
 
         public static List<SelectListItem> BudgetCategories = new List<SelectListItem>()
         {

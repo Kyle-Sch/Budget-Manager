@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Budget_Manager.DAL {
     public interface IBudgetDal {
-        List<Budget> GetAllPosts();
-        bool SaveNewPost(Budget post);
+        List<BudgetPost> GetAllPosts();
+        bool SaveNewPost(BudgetPost post);
+        bool RemovePost(BudgetPost post);
     }
 }

@@ -12,7 +12,6 @@ namespace Budget_Manager.Models {
         public decimal IncomeAmount { get; set; }
         public string IncomeCategory { get; set; }
         public bool IsActive { get; set; }
-        public bool PostSuccess { get; set; }
 
         public IList<IncomePost> Results { get; set; }
 
