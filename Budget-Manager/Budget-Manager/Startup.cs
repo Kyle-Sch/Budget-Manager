@@ -29,6 +29,13 @@ namespace Budget_Manager {
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDistributedMemoryCache();
+            services.AddSession(options => {
+                // Sets session expiration to 20 minuates
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+                options.Cookie.HttpOnly = true;
+            });
+
             services.AddTransient<IExpenseDal, ExpenseSqlDal>();
             services.AddScoped<IExpenseDal>(x => new ExpenseSqlDal(@"Data Source=.\SQLEXPRESS;Initial Catalog=Budget-Manager;Integrated Security=True"));
             services.AddTransient<IIncomeDal, IncomeSqlDal>();
@@ -50,6 +57,7 @@ namespace Budget_Manager {
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseSession();
             app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "default",

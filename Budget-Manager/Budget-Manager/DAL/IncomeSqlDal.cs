@@ -18,14 +18,13 @@ namespace Budget_Manager.DAL {
 
             using (SqlConnection conn = new SqlConnection(ConnString)) {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * from Income_Streams", conn);
+                SqlCommand cmd = new SqlCommand("SELECT * from Income", conn);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read()) {
                     IncomePost temp = new IncomePost();
                     temp.IncomeId = Convert.ToInt32(reader["IncomeId"]);
-                    temp.BudgetDescription = Convert.ToString(reader["BudgetDescription"]);
-                    temp.IncomeDescription = Convert.ToString(reader["IncomeDescription"]);
+                    temp.BudgetId = Convert.ToInt32(reader["BudgetId"]); temp.IncomeDescription = Convert.ToString(reader["IncomeDescription"]);
                     temp.IncomeAmount = Convert.ToInt32(reader["IncomeAmount"]);
                     temp.IncomeCategory = Convert.ToString(reader["IncomeCategory"]);
                     temp.IsActive = Convert.ToBoolean(reader["IsActive"]);
@@ -40,14 +39,36 @@ namespace Budget_Manager.DAL {
                 using (SqlConnection conn = new SqlConnection(ConnString)) {
                     conn.Open();
 
-                    string sql = $"INSERT INTO Income_Streams VALUES (@BudgetDescription, @IncomeDescription, @IncomeAmount" +
+                    string sql = $"INSERT INTO Income VALUES (@BudgetID, @IncomeDescription, @IncomeAmount" +
                         $", @IncomeCategory, @IsActive);";
                     SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@BudgetDescription", post.BudgetDescription);
+                    cmd.Parameters.AddWithValue("@BudgetID", post.BudgetId);
                     cmd.Parameters.AddWithValue("@IncomeDescription", post.IncomeDescription);
                     cmd.Parameters.AddWithValue("@IncomeAmount", post.IncomeAmount);
                     cmd.Parameters.AddWithValue("@IncomeCategory", post.IncomeCategory);
                     cmd.Parameters.AddWithValue("@IsActive", post.IsActive);
+
+                    int rowsaffected = cmd.ExecuteNonQuery();
+                    if (rowsaffected == 1) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+            }
+            catch (SqlException) {
+                return false;
+            }
+        }
+        public bool RemovePost(IncomePost post) {
+            try {
+                using (SqlConnection conn = new SqlConnection(ConnString)) {
+                    conn.Open();
+
+                    string sql = $"Update Income_Streams set IsActive = 1 where IncomeId like @IncomeId;";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@IncomeId", post.IncomeId);
 
                     int rowsaffected = cmd.ExecuteNonQuery();
                     if (rowsaffected == 1) {

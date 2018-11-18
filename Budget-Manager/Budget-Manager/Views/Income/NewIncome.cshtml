@@ -9,7 +9,7 @@
 <form asp-controller="Income" asp-action="NewIncome" method="post">
     <div>
         <label asp-for="BudgetDescription">Budget Description: </label>
-        <input asp-for="BudgetDescription" type="text" />
+        <select asp-for="BudgetDescription" asp-items="IncomePost.BudgetCategories"></select>
 
         <label asp-for="IncomeDescription">Primary Income Description: </label>
         <input asp-for="IncomeDescription" type="text" />
@@ -17,8 +17,8 @@
         <label asp-for="IncomeAmount">Primary Income Amount: </label>
         <input asp-for="IncomeAmount" type="number" />
     </div> <div>
-        <label asp-for="IncomeCategory">Secondary Income Description: </label>
-        <select asp-for="IncomeCategory" asp-items="IncomePost.IncomeCategories" />
+        <label asp-for="IncomeCategory">Income Categories: </label>
+        <select asp-for="IncomeCategory" asp-items="IncomePost.IncomeCategories"></select>
     </div>
     <input type="submit" value="Submit" />
 </form>

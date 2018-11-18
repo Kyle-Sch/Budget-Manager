@@ -35,5 +35,18 @@ namespace LyftRecorder.Controllers {
             }
             return RedirectToAction("Index", "Income", iPost);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult RemoveIncome(IncomePost iPost) {
+            try {
+                incomeDAL.SaveNewPost(iPost);
+                iPost.PostSuccess = true;
+            }
+            catch (NullReferenceException) {
+                iPost.PostSuccess = false;
+            }
+            return RedirectToAction("Index", "Income", iPost);
+        }
     }
 }

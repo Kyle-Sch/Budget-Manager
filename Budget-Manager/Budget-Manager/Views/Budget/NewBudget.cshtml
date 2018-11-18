@@ -1,0 +1,20 @@
+﻿@model Budget
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>New Book Reviews</h2>
+
+<form asp-controller="Budget" asp-action="NewBudget" method="post">
+    <label asp-for="BudgetId" hidden="hidden">Detail Mode: </label>
+    <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
+
+    <label asp-for="BudgetId" hidden="hidden">Detail Mode: </label>
+    <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
+
+    <label asp-for="BudgetCategory">Budget Category: </label>
+    <select asp-for="BudgetCategory" asp-items="Budget.BudgetCategories" />
+
+    <input type="submit" value="Submit" />
+</form>

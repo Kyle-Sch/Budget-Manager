@@ -131,7 +131,7 @@ using Budget_Manager.Models;
             WriteLiteral("</p>\r\n                ");
             EndContext();
             BeginContext(573, 83, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "98cbbc82840a44b3bc98b18049055ebf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ba603b0283654735afbf87e15da1da42", async() => {
                 BeginContext(638, 14, true);
                 WriteLiteral("Post a Message");
                 EndContext();
@@ -205,7 +205,7 @@ using Budget_Manager.Models;
             WriteLiteral("</p>\r\n            ");
             EndContext();
             BeginContext(916, 83, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "08f428ba12e24e8080bd55c4b8034530", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2f04d37a04b44034add07c3a58f79a75", async() => {
                 BeginContext(981, 14, true);
                 WriteLiteral("Post a Message");
                 EndContext();
