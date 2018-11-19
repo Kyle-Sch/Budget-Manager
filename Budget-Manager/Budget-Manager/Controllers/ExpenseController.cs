@@ -14,12 +14,16 @@ namespace Budget_Manager.Controllers {
             this.expenseDAL = expenseDAL;
         }
 
-        public IActionResult Index(BudgetPost bPost) {
-            return View();
+        public IActionResult Index(int budgetId) {
+            ExpensePost ePost = new ExpensePost();
+            ePost.Results = expenseDAL.GetAllPosts(budgetId);
+            return View(ePost);
         }
-
+        public IActionResult BudgetSelect(BudgetPost bPost) {
+            return RedirectToAction("Index", "Income", bPost.BudgetId);
+        }
         [HttpGet]
-        public IActionResult NewExpense(BudgetPost bPost) {
+        public IActionResult NewExpense() {
 
             return View();
         }
@@ -34,6 +38,16 @@ namespace Budget_Manager.Controllers {
                 throw;
             }
             return RedirectToAction("Index", "Expense", ePost);
+        }
+
+        public IActionResult RemoveExpense(ExpensePost ePost) {
+            try {
+                expenseDAL.RemovePost(ePost);
+            }
+            catch (NullReferenceException) {
+                throw;
+            }
+            return RedirectToAction("Index", "Income", ePost.BudgetId);
         }
     }
 }

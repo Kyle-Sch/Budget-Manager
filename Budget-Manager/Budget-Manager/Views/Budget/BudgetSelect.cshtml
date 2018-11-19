@@ -18,19 +18,19 @@
     <label asp-for="BudgetId" hidden="hidden"></label>
     <input asp-for="BudgetId" value="@Model.BudgetId" hidden="hidden" />
 
-    <input type="submit" value="New Monthly Expense" />
+    <input type="submit" value="Current Monthly Expenses" />
 </form>
 <form asp-controller="Income" asp-action="NewIncome" method="post">
 
     <label asp-for="BudgetId" hidden="hidden"></label>
     <input asp-for="BudgetId" value="@Model.BudgetId" hidden="hidden" />
 
-    <input type="submit" value="New Monthly Expense" />
+    <input type="submit" value="New Monthly Income" />
 </form>
-<form asp-controller="Income" asp-action="Index" method="post">
+<form asp-controller="Income" asp-action="BudgetSelect" method="post">
 
     <label asp-for="BudgetId" hidden="hidden"></label>
     <input asp-for="BudgetId" value="@Model.BudgetId" hidden="hidden" />
 
-    <input type="submit" value="New Monthly Expense" />
+    <input type="submit" value="Current Monthly Income Streams" />
 </form>

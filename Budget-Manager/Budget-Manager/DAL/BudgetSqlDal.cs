@@ -14,8 +14,8 @@ namespace Budget_Manager.DAL {
         }
 
         private const string GET_ALL_Budgets_SQL = "SELECT * from Budget";
-        private const string Insert_Budget_SQL = "INSERT INTO Budget VALUES (@BudgetName, @BudgetCategory, @IsActive);";
-        private const string Remove_Budgets_SQL = "UPDATE Budget SET IsActive = @IsActive, WHERE BudgetId = @BudgetId;";
+        private const string Insert_Budget_SQL = "INSERT INTO Budget VALUES (@BudgetName, @BudgetCategory, 'true');";
+        private const string Remove_Budgets_SQL = "UPDATE Budget SET IsActive = 'false' WHERE BudgetId = @BudgetId;";
 
 
         public List<BudgetPost> GetAllPosts() {
@@ -32,7 +32,7 @@ namespace Budget_Manager.DAL {
                     temp.BudgetCategory = Convert.ToString(reader["BudgetCategory"]);
                     temp.BudgetName = Convert.ToString(reader["BudgetName"]);
                     temp.IsActive = Convert.ToBoolean(reader["IsActive"]);
-
+                    temp.ImgBudgetId = temp.BudgetCategory;
                     if (temp.IsActive) {
                         posts.Add(temp);
                     }
@@ -49,8 +49,7 @@ namespace Budget_Manager.DAL {
                     SqlCommand cmd = new SqlCommand(Insert_Budget_SQL, conn);
                     cmd.Parameters.AddWithValue("@BudgetName", post.BudgetName);
                     cmd.Parameters.AddWithValue("@BudgetCategory", post.BudgetCategory);
-                    cmd.Parameters.AddWithValue("@IsActive", true);
-
+                 
                     int rowsaffected = cmd.ExecuteNonQuery();
                     if (rowsaffected == 1) {
                         return true;
@@ -69,10 +68,9 @@ namespace Budget_Manager.DAL {
                 using (SqlConnection conn = new SqlConnection(ConnString)) {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(Insert_Budget_SQL, conn);
+                    SqlCommand cmd = new SqlCommand(Remove_Budgets_SQL, conn);
                     cmd.Parameters.AddWithValue("@BudgetId", post.BudgetId);
-                    cmd.Parameters.AddWithValue("@IsActive", false);
-
+                   
                     int rowsaffected = cmd.ExecuteNonQuery();
                     if (rowsaffected == 1) {
                         return true;

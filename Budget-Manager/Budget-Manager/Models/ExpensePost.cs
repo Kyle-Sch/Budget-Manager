@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,8 +9,10 @@ namespace Budget_Manager.Models {
     public class ExpensePost {
         public int ExpenseId { get; set; }
         public int BudgetId { get; set; }
+        [Required]
         public string ExpenseDescription { get; set; }
         public string ExpenseCategory { get; set; }
+        [Required]
         public decimal ExpenseAmount { get; set; }
         public bool IsActive { get; set; }
 

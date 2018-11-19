@@ -11,9 +11,9 @@
     <input asp-for="ExpenseDescription" type="text" />
 
     <label asp-for="ExpenseCategory">Expense Category: </label>
-    <select asp-for="ExpenseCategory" asp-items="ExpensePost.ExpenseCategories" />
+    <select asp-for="ExpenseCategory" asp-items="ExpensePost.ExpenseCategories" ></select>
 
-    <label asp-for="ExpenseAmount">Primary Income Amount: </label>
+    <label asp-for="ExpenseAmount">Monthly Expense Amount: </label>
     <input asp-for="ExpenseAmount" type="number" />
 
     <input type="submit" value="Submit" />

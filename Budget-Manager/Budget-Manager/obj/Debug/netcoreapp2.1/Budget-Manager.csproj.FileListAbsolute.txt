@@ -31,3 +31,7 @@ C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Mana
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.dll
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.pdb
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.csproj.CopyComplete
+C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Budget\BudgetSelect.g.cshtml.cs
+C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Budget\Index.g.cshtml.cs
+C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Budget\NewBudget.g.cshtml.cs
+C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Home\Results.g.cshtml.cs

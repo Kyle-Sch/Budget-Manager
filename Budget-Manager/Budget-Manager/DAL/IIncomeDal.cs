@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Budget_Manager.DAL {
     public interface IIncomeDal {
-        List<IncomePost> GetAllPosts();
+        List<IncomePost> GetAllPosts(int budgetId);
         bool SaveNewPost(IncomePost post);
+        bool RemovePost(IncomePost post);
     }
 }

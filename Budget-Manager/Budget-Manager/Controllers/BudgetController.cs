@@ -14,7 +14,8 @@ namespace Budget_Manager.Controllers {
             this.budgetDAL = budgetDAL;
         }
 
-        public IActionResult Index(BudgetPost bPost) {
+        public IActionResult Index() {
+            BudgetPost bPost = new BudgetPost();
             bPost.Results = budgetDAL.GetAllPosts();
             return View(bPost);
         }
@@ -26,7 +27,7 @@ namespace Budget_Manager.Controllers {
 
         public IActionResult Remove(BudgetPost bPost) {
             budgetDAL.RemovePost(bPost);
-            return RedirectToAction("Index", "Budget", bPost);
+            return RedirectToAction("Index", "Budget");
         }
 
         [HttpGet]
@@ -44,7 +45,7 @@ namespace Budget_Manager.Controllers {
             catch (NullReferenceException) {
                 throw;
             }
-            return RedirectToAction("Index", "Budget", bPost);
+            return RedirectToAction("Index", "Budget");
         }
     }
 }

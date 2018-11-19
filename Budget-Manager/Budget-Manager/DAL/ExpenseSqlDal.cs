@@ -13,19 +13,20 @@ namespace Budget_Manager.DAL {
             ConnString = connString;
         }
 
-        private const string GET_ALL_Expenses_SQL = "SELECT * from Expense";
+        private const string GET_ALL_Expenses_SQL = "SELECT * from Expense where BudgetId = @BudgetId";
         private const string Insert_Expense_SQL = "INSERT INTO Expense " +
-            "VALUES (@ExpenseDescription, @ExpenseCategory, @ExpenseAmount, BudgetID);";
-        private const string Remove_Expense_SQL = "Update Expense set IsActive = @IsActive " +
+            "VALUES (@ExpenseDescription, @ExpenseCategory, @ExpenseAmount, BudgetID, 'true');";
+        private const string Remove_Expense_SQL = "Update Expense set IsActive = 'false' " +
             "where ExpenseId = @ExpenseId;";
 
-        public List<ExpensePost> GetAllPosts() {
+        public List<ExpensePost> GetAllPosts(int budgetId) {
             List<ExpensePost> posts = new List<ExpensePost>();
 
             using (SqlConnection conn = new SqlConnection(ConnString)) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(GET_ALL_Expenses_SQL, conn);
 
+                cmd.Parameters.AddWithValue("@BudgetID", budgetId);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read()) {
                     ExpensePost temp = new ExpensePost();
@@ -48,7 +49,6 @@ namespace Budget_Manager.DAL {
             try {
                 using (SqlConnection conn = new SqlConnection(ConnString)) {
                     conn.Open();
-
 
                     SqlCommand cmd = new SqlCommand(Insert_Expense_SQL, conn);
                     cmd.Parameters.AddWithValue("@ExpenseDescription", post.ExpenseDescription);
@@ -77,7 +77,6 @@ namespace Budget_Manager.DAL {
 
                     SqlCommand cmd = new SqlCommand(Remove_Expense_SQL, conn);
                     cmd.Parameters.AddWithValue("@ExpenseId", post.ExpenseId);
-                    cmd.Parameters.AddWithValue("@IsActive", false);
 
                     int rowsaffected = cmd.ExecuteNonQuery();
                     if (rowsaffected == 1) {

@@ -6,28 +6,33 @@
 
 <h2> Income Stream Board </h2>
 
-@{
-    <a asp-controller="Income" asp-action="NewIncome" method="get">Post a New Source of Income</a>
+<a asp-controller="Income" asp-action="NewIncome" method="get">Post a New Source of Income</a>
+<div style="margin-top:.895em">
+    @{
+        bool isColored = false;
+        string coloredClass = "";
+        for (int i = 0; i < Model.Results.Count; i++) {
+            if (Model.Results[i].IsActive) {
+                coloredClass = (isColored) ? "AllParksColoredTile" : "";
+                <div class="@coloredClass">
+                    <div class="AllParksInfo">
+                        <h4><b>@Model.Results[i].IncomeDescription</b></h4>
+                        <p>@Model.Results[i].IncomeCategory - @Model.Results[i].IncomeCategory</p>
+                        <form asp-controller="Budget" asp-action="BudgetSelect" method="post">
+                            <label asp-for="BudgetId" hidden="hidden">Detail Mode: </label>
+                            <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
+                            <input type="submit" value="Detail Mode" />
+                        </form>
+                        <form asp-controller="Budget" asp-action="Remove" method="get">
+                            <label asp-for="BudgetId" hidden="hidden">Detail Mode: </label>
+                            <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
+                            <input type="submit" value="Detail Mode" />
+                        </form>
+                    </div>
+                </div>
 
-
-    for (int i = 0; i < Model.Results.Count; i++) {
-        if (Model.Results[i].IsActive) {
-            //if (i % 2 != 0) {
-                @*<div style="background-color: lightgray">*@
-                    <h4><b>@Model.Results[i].BudgetDescription</b></h4>
-                    <p>Employed by @Model.Results[i].IncomeDescription</p>
-                    <p>Monthly Income Amount: $@Model.Results[i].IncomeAmount</p>
-                    <p>Category: @Model.Results[i].IncomeCategory Income</p>
-                    <a asp-controller="Income" asp-action="RemoveIncome" method="post">Remove Income Stream</a>
-                @*</div>
+                isColored = !isColored;
             }
-            else {
-                <h4><b>@Model.Results[i].BudgetDescription</b></h4>
-                <p>Employed by @Model.Results[i].IncomeDescription</p>
-                <p>Monthly Income Amount: $@Model.Results[i].IncomeAmount</p>
-                <p>Category: @Model.Results[i].IncomeCategory Income</p>
-                <a asp-controller="Income" asp-action="RemoveIncome" method="post">Remove Income Stream</a>
-            }*@
         }
     }
-}
+</div>

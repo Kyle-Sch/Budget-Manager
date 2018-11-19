@@ -35,7 +35,8 @@ namespace Budget_Manager {
                 options.IdleTimeout = TimeSpan.FromMinutes(20);
                 options.Cookie.HttpOnly = true;
             });
-
+            services.AddTransient<IBudgetDal, BudgetSqlDal>();
+            services.AddScoped<IBudgetDal>(x => new BudgetSqlDal(@"Data Source=.\SQLEXPRESS;Initial Catalog=Budget-Manager;Integrated Security=True"));
             services.AddTransient<IExpenseDal, ExpenseSqlDal>();
             services.AddScoped<IExpenseDal>(x => new ExpenseSqlDal(@"Data Source=.\SQLEXPRESS;Initial Catalog=Budget-Manager;Integrated Security=True"));
             services.AddTransient<IIncomeDal, IncomeSqlDal>();

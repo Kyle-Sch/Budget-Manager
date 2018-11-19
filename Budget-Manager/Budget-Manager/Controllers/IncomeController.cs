@@ -14,13 +14,16 @@ namespace Budget_Manager.Controllers {
             this.incomeDAL = incomeDAL;
         }
 
-        public IActionResult Index(BudgetPost bPost) {
-
-            iPost.Results = incomeDAL.GetAllPosts();
+        public IActionResult Index(int budgetId) {
+            IncomePost iPost = new IncomePost();
+            iPost.Results = incomeDAL.GetAllPosts(budgetId);
             return View(iPost);
         }
+        public IActionResult BudgetSelect(BudgetPost bPost) {
+            return RedirectToAction("Index", "Income", bPost.BudgetId);
+        }
         [HttpGet]
-        public IActionResult NewIncome(BudgetPost bPost) {
+        public IActionResult NewIncome() {
             return View();
         }
 
@@ -29,25 +32,21 @@ namespace Budget_Manager.Controllers {
         public IActionResult NewIncome(IncomePost iPost) {
             try {
                 incomeDAL.SaveNewPost(iPost);
-                iPost.PostSuccess = true;
             }
             catch (NullReferenceException) {
-                iPost.PostSuccess = false;
+                throw;
             }
-            return RedirectToAction("Index", "Income", iPost);
+            return RedirectToAction("Index", "Income", iPost.BudgetId);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult RemoveIncome(IncomePost iPost) {
             try {
-                incomeDAL.SaveNewPost(iPost);
-                iPost.PostSuccess = true;
+                incomeDAL.RemovePost(iPost);
             }
             catch (NullReferenceException) {
-                iPost.PostSuccess = false;
+                throw;
             }
-            return RedirectToAction("Index", "Income", iPost);
+            return RedirectToAction("Index", "Income", iPost.BudgetId);
         }
     }
 }

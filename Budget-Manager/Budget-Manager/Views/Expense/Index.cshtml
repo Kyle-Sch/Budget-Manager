@@ -1,31 +1,38 @@
 ﻿@model ExpensePost
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Expense List";
 }
 
-<h2> Expense Board </h2>
-@if (Model.PostSuccess) {
-    <h2>Your message has been saved!</h2>
-}
-<nav style="text-align:center">
+<h2> Expenses </h2>
 
-</nav>
-@{
-    for (int i = 0; i < Model.Results.Count; i++) {
-        if (i % 2 != 0) {
-            <div style="background-color: lightgray">
-                <p><b>@Model.Results[i].ExpenseDescription</b></p>
-                <p>by @Model.Results[i].ExpenseCategory @Model.Results[i].GroupId</p>
-                <p>@Model.Results[i].ExpenseAmount</p>
-                <a asp-controller="Expense" asp-action="NewExpense" method="get">Post a Message</a>
-            </div>
-        }
-        else {
-            <p><b>@Model.Results[i].ExpenseDescription</b></p>
-            <p>by @Model.Results[i].ExpenseCategory @Model.Results[i].GroupId</p>
-            <p>@Model.Results[i].ExpenseAmount</p>
-            <a asp-controller="Expense" asp-action="NewExpense" method="get">Post a Message</a>
+<a asp-controller="Income" asp-action="NewIncome" method="get">Post a New Source of Income</a>
+
+<div style="margin-top:.895em">
+    @{
+        bool isColored = false;
+        string coloredClass = "";
+        for (int i = 0; i < Model.Results.Count; i++) {
+            if (Model.Results[i].IsActive) {
+                coloredClass = (isColored) ? "AllParksColoredTile" : "";
+                <div class="@coloredClass">
+                    <div class="AllParksInfo">
+                        <h4><b>@Model.Results[i].ExpenseDescription</b></h4>
+                        <p>@Model.Results[i].ExpenseCategory - @Model.Results[i].ExpenseAmount</p>
+                        <form asp-controller="Expense" asp-action="BudgetSelect" method="post">
+                            <label asp-for="BudgetId" hidden="hidden">Detail Mode: </label>
+                            <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
+                            <input type="submit" value="Detail Mode" />
+                        </form>
+                        <form asp-controller="Expense" asp-action="Remove" method="get">
+                            <label asp-for="BudgetId" hidden="hidden">Detail Mode: </label>
+                            <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
+                            <input type="submit" value="Detail Mode" />
+                        </form>
+                    </div>
+                </div>
+                isColored = !isColored;
+            }
         }
     }
-}
+</div>

@@ -4,32 +4,33 @@
 }
 <h2>Select a Budget to View/Edit</h2>
 
-<a asp-controller="Budget" asp-action="NewBudget" method="get">Create a new expense</a>
+<a asp-controller="Budget" asp-action="NewBudget" method="get">Create a new Budget</a>
 <div style="margin-top:.895em">
     @{
         bool isColored = false;
         string coloredClass = "";
         for (int i = 0; i < Model.Results.Count; i++) {
-            coloredClass = (isColored) ? "AllParksColoredTile" : "";
-            <div class="@coloredClass">
-                <img class="AllParksPic" src="~/images/@Model.Results[i].ImgBudgetId" />
-                <div class="AllParksInfo">
-                    <h4><b>@Model.Results[i].BudgetName</b></h4>
-                    <p>@Model.Results[i].BudgetCategory</p>
-                    <form asp-controller="Budget" asp-action="BudgetSelect" method="post">
-                        <label asp-for="BudgetId" hidden="hidden">Detail Mode: </label>
-                        <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
-                        <input type="submit" value="Detail Mode" />
-                    </form>
-                    <form asp-controller="Budget" asp-action="Remove" method="get">
-                        <label asp-for="BudgetId" hidden="hidden">Detail Mode: </label>
-                        <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
-                        <input type="submit" value="Detail Mode" />
-                    </form>
+            if (Model.Results[i].IsActive) {
+                coloredClass = (isColored) ? "AllParksColoredTile" : "";
+                <div class="@coloredClass">
+                    <img class="AllParksPic" src="~/images/@Model.Results[i].ImgBudgetId" />
+                    <div class="AllParksInfo">
+                        <h4><b>@Model.Results[i].BudgetName</b></h4>
+                        <p>@Model.Results[i].BudgetCategory</p>
+                        <form asp-controller="Budget" asp-action="BudgetSelect" method="post">
+                            <label asp-for="BudgetId" hidden="hidden"> </label>
+                            <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
+                            <input type="submit" value="Select" />
+                        </form>
+                        <form asp-controller="Budget" asp-action="Remove" method="get">
+                            <label asp-for="BudgetId" hidden="hidden"></label>
+                            <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
+                            <input type="submit" value="Remove" />
+                        </form>
+                    </div>
                 </div>
-            </div>
-
-            isColored = !isColored;
+                isColored = !isColored;
+            }
         }
     }
 </div>
