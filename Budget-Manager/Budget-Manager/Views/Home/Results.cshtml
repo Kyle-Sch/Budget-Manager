@@ -1,7 +1,10 @@
-﻿@{
+﻿@model List<decimal>
+@{
     ViewData["Title"] = "Home Page";
 }
 <h2>Personal Budget Manager and Tracker</h2>
 
-<a asp-controller="Budget" asp-action="NewBudget" method="get">Create a new Budget</a>
-<a asp-controller="Budget" asp-action="NewBudget" method="get">Select a Current Budget</a>
+<h3>Total Expenses: @Model[0]</h3>
+<h3>Total Income: @Model[1]</h3>
+
+<h3>Total Money left over for the month:  @Model[2]</h3>

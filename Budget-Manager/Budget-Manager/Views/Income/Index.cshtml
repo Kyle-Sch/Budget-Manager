@@ -17,16 +17,12 @@
                 <div class="@coloredClass">
                     <div class="AllParksInfo">
                         <h4><b>@Model.Results[i].IncomeDescription</b></h4>
-                        <p>@Model.Results[i].IncomeCategory - @Model.Results[i].IncomeCategory</p>
-                        <form asp-controller="Budget" asp-action="BudgetSelect" method="post">
-                            <label asp-for="BudgetId" hidden="hidden">Detail Mode: </label>
-                            <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
-                            <input type="submit" value="Detail Mode" />
-                        </form>
-                        <form asp-controller="Budget" asp-action="Remove" method="get">
-                            <label asp-for="BudgetId" hidden="hidden">Detail Mode: </label>
-                            <input asp-for="BudgetId" value="@Model.Results[i].BudgetId" hidden="hidden" />
-                            <input type="submit" value="Detail Mode" />
+                        <p>@Model.Results[i].IncomeAmount - @Model.Results[i].IncomeCategory</p>
+                
+                        <form asp-controller="Income" asp-action="RemoveIncome" method="post">
+                            <label asp-for="IncomeId" hidden="hidden">Detail Mode: </label>
+                            <input asp-for="IncomeId" value="@Model.Results[i].IncomeId" hidden="hidden" />
+                            <input type="submit" value="Remove" />
                         </form>
                     </div>
                 </div>

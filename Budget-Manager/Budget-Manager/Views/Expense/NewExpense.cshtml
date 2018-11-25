@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>New Book Reviews</h2>
+<h2>Enter a new expense</h2>
 
 <form asp-controller="Expense" asp-action="NewExpense" method="post">
     <label asp-for="ExpenseDescription">Expense Description: </label>
@@ -15,6 +15,9 @@
 
     <label asp-for="ExpenseAmount">Monthly Expense Amount: </label>
     <input asp-for="ExpenseAmount" type="number" />
+
+    <label asp-for="BudgetId" hidden="hidden"></label>
+    <input asp-for="BudgetId" hidden="hidden" value="@Model.BudgetId"/>
 
     <input type="submit" value="Submit" />
 </form>

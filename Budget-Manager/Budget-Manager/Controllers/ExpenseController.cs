@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Budget_Manager.DAL;
 using Budget_Manager.Models;
+using Budget_Manager.Extensions;
 
 namespace Budget_Manager.Controllers {
     public class ExpenseController : Controller {
@@ -14,40 +15,54 @@ namespace Budget_Manager.Controllers {
             this.expenseDAL = expenseDAL;
         }
 
-        public IActionResult Index(int budgetId) {
+        public IActionResult Index() {
             ExpensePost ePost = new ExpensePost();
-            ePost.Results = expenseDAL.GetAllPosts(budgetId);
+            ePost.Results = expenseDAL.GetAllPosts(GetTempBudgetID());
             return View(ePost);
         }
-        public IActionResult BudgetSelect(BudgetPost bPost) {
-            return RedirectToAction("Index", "Income", bPost.BudgetId);
-        }
+        //public IActionResult BudgetSelect(BudgetPost bPost) {
+        //    return RedirectToAction("Index", "Expense", GetTempBudgetID());
+        //}
         [HttpGet]
         public IActionResult NewExpense() {
-
-            return View();
+            ExpensePost newpost = new ExpensePost();
+            newpost.BudgetId = GetTempBudgetID();
+            return View(newpost);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult NewExpense(ExpensePost ePost) {
+        public IActionResult NewExpense(ExpensePost post) {
             try {
-                expenseDAL.SaveNewPost(ePost);
+                expenseDAL.SaveNewPost(post);
             }
             catch (NullReferenceException) {
                 throw;
             }
-            return RedirectToAction("Index", "Expense", ePost);
+            return RedirectToAction("Index", "Expense");
         }
 
-        public IActionResult RemoveExpense(ExpensePost ePost) {
+        public IActionResult RemoveExpense(ExpensePost post) {
             try {
-                expenseDAL.RemovePost(ePost);
+                expenseDAL.RemovePost(post);
             }
             catch (NullReferenceException) {
                 throw;
             }
-            return RedirectToAction("Index", "Income", ePost.BudgetId);
+            return RedirectToAction("Index", "Expense");
+        }
+
+        const string TEMP_SESSION_ID = "Budget_Id";
+
+        private int GetTempBudgetID() {
+            int id = Convert.ToInt32(HttpContext.Session.Get<string>(TEMP_SESSION_ID));
+
+             if (id < 0) {
+
+                id = 0;
+                HttpContext.Session.Set(TEMP_SESSION_ID, id);
+            }
+            return id;
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace Capstone.Web.Extensions {
+namespace Budget_Manager.Extensions {
     public static class SessionExtensions {
         public static void Set<T>(this ISession session, string key, T value) {
             session.SetString(key, JsonConvert.SerializeObject(value));

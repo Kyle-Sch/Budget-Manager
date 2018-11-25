@@ -15,7 +15,8 @@ namespace Budget_Manager.DAL {
 
         private const string GET_ALL_Expenses_SQL = "SELECT * from Expense where BudgetId = @BudgetId";
         private const string Insert_Expense_SQL = "INSERT INTO Expense " +
-            "VALUES (@ExpenseDescription, @ExpenseCategory, @ExpenseAmount, BudgetID, 'true');";
+            "(ExpenseDescription, ExpenseCategory, ExpenseAmount, IsActive, BudgetId)" +
+            "VALUES (@ExpenseDescription, @ExpenseCategory, @ExpenseAmount, 'true', @BudgetId);";
         private const string Remove_Expense_SQL = "Update Expense set IsActive = 'false' " +
             "where ExpenseId = @ExpenseId;";
 
@@ -26,7 +27,7 @@ namespace Budget_Manager.DAL {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(GET_ALL_Expenses_SQL, conn);
 
-                cmd.Parameters.AddWithValue("@BudgetID", budgetId);
+                cmd.Parameters.AddWithValue("@BudgetId", budgetId);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read()) {
                     ExpensePost temp = new ExpensePost();
@@ -54,7 +55,7 @@ namespace Budget_Manager.DAL {
                     cmd.Parameters.AddWithValue("@ExpenseDescription", post.ExpenseDescription);
                     cmd.Parameters.AddWithValue("@ExpenseCategory", post.ExpenseCategory);
                     cmd.Parameters.AddWithValue("@ExpenseAmount", post.ExpenseAmount);
-                    cmd.Parameters.AddWithValue("@BudgetID", post.BudgetId);
+                    cmd.Parameters.AddWithValue("@BudgetId", post.BudgetId);
 
                     int rowsaffected = cmd.ExecuteNonQuery();
                     if (rowsaffected == 1) {
@@ -65,8 +66,8 @@ namespace Budget_Manager.DAL {
                     }
                 }
             }
-            catch (SqlException) {
-                return false;
+            catch (SqlException ex) {
+                throw;
             }
 
         }
