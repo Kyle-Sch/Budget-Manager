@@ -5,6 +5,10 @@
 }
 
 <h2> Expenses </h2>
+<form asp-controller="Budget" asp-action="BudgetSelect" method="get">
+
+    <input type="submit" value="Budget Select Menu" />
+</form>
 
 <form asp-controller="Expense" asp-action="NewExpense" method="get">
 
@@ -25,7 +29,7 @@
                     <div class="AllParksInfo">
                         <h4><b>@Model.Results[i].ExpenseDescription</b></h4>
                         <p>@Model.Results[i].ExpenseCategory - @Model.Results[i].ExpenseAmount</p>
-                       
+
                         <form asp-controller="Expense" asp-action="RemoveExpense" method="get">
                             <label asp-for="ExpenseId" hidden="hidden">Detail Mode: </label>
                             <input asp-for="ExpenseId" value="@Model.Results[i].ExpenseId" hidden="hidden" />

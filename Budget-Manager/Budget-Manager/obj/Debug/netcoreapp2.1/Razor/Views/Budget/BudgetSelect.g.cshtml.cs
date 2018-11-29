@@ -82,7 +82,7 @@ Write(Model.BudgetName);
             WriteLiteral("</h2>\r\n\r\n");
             EndContext();
             BeginContext(94, 136, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d5f3d5eefede4d13a6b33080c0629764", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0bfbf3c614b14865adb5d760183660e9", async() => {
                 BeginContext(162, 61, true);
                 WriteLiteral("\r\n\r\n    <input type=\"submit\" value=\"New Monthly Expense\" />\r\n");
                 EndContext();
@@ -110,7 +110,7 @@ Write(Model.BudgetName);
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(232, 137, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0826c1d0cdf54d8d9731e98a50e22476", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "908c6a6d6f8b409e8db9db23eba57dce", async() => {
                 BeginContext(296, 66, true);
                 WriteLiteral("\r\n\r\n    <input type=\"submit\" value=\"Current Monthly Expenses\" />\r\n");
                 EndContext();
@@ -138,7 +138,7 @@ Write(Model.BudgetName);
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(371, 133, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "318ed9fd55db4c709e059706cda38a16", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "13f94da15d8e4c13abad5a1f5afd2106", async() => {
                 BeginContext(437, 60, true);
                 WriteLiteral("\r\n\r\n    <input type=\"submit\" value=\"New Monthly Income\" />\r\n");
                 EndContext();
@@ -166,7 +166,7 @@ Write(Model.BudgetName);
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(506, 140, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "098ab181ce1f4ca282ddc9c44784989c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0214f7e0532a4e678dd017f8c884bb9d", async() => {
                 BeginContext(569, 70, true);
                 WriteLiteral("\r\n    <input type=\"submit\" value=\"Current Monthly Income Streams\" />\r\n");
                 EndContext();
@@ -194,7 +194,7 @@ Write(Model.BudgetName);
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(648, 128, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dda8e97ebcc74761878c479bfeb68686", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6e0e28e81a8d4da1ac2006b2ddbacb66", async() => {
                 BeginContext(711, 58, true);
                 WriteLiteral("\r\n\r\n    <input type=\"submit\" value=\"Total Camparison\" />\r\n");
                 EndContext();

@@ -20,9 +20,6 @@ namespace Budget_Manager.Controllers {
             ePost.Results = expenseDAL.GetAllPosts(GetTempBudgetID());
             return View(ePost);
         }
-        //public IActionResult BudgetSelect(BudgetPost bPost) {
-        //    return RedirectToAction("Index", "Expense", GetTempBudgetID());
-        //}
         [HttpGet]
         public IActionResult NewExpense() {
             ExpensePost newpost = new ExpensePost();

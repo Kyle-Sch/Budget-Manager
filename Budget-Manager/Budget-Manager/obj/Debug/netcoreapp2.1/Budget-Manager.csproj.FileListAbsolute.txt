@@ -5,7 +5,6 @@ C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Mana
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\bin\Debug\netcoreapp2.1\Budget-Manager.pdb
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\bin\Debug\netcoreapp2.1\Budget-Manager.Views.dll
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\bin\Debug\netcoreapp2.1\Budget-Manager.Views.pdb
-C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.csprojAssemblyReference.cache
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.csproj.CoreCompileInputs.cache
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.RazorAssemblyInfo.cache
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.RazorAssemblyInfo.cs
@@ -14,9 +13,13 @@ C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Mana
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.TagHelpers.input.cache
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.TagHelpers.output.cache
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.RazorCoreGenerate.cache
+C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Budget\BudgetSelect.g.cshtml.cs
+C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Budget\Index.g.cshtml.cs
+C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Budget\NewBudget.g.cshtml.cs
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Expense\Index.g.cshtml.cs
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Expense\NewExpense.g.cshtml.cs
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Home\Results.g.cshtml.cs
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Income\Index.g.cshtml.cs
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Income\NewIncome.g.cshtml.cs
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
@@ -31,7 +34,3 @@ C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Mana
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.dll
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.pdb
 C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Budget-Manager.csproj.CopyComplete
-C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Budget\BudgetSelect.g.cshtml.cs
-C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Budget\Index.g.cshtml.cs
-C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Budget\NewBudget.g.cshtml.cs
-C:\Users\Kyle S\workspace\Ind Projects\Budget-Manager\Budget-Manager\Budget-Manager\obj\Debug\netcoreapp2.1\Razor\Views\Home\Results.g.cshtml.cs
