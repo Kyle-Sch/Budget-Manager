@@ -75,7 +75,7 @@ using Budget_Manager.Models;
             WriteLiteral("\r\n<h2> Income Stream Board </h2>\r\n");
             EndContext();
             BeginContext(96, 136, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d88e811784f74c598622cc5adeac6e52", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bfb8c383f9574a1d8ae3265e3ba0c25e", async() => {
                 BeginContext(165, 60, true);
                 WriteLiteral("\r\n\r\n    <input type=\"submit\" value=\"Budget Select Menu\" />\r\n");
                 EndContext();
@@ -103,7 +103,7 @@ using Budget_Manager.Models;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(236, 94, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "97cc0746d5f5481599ae681bdc6af36b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e14ec232dad64de6899c066901ffd4a7", async() => {
                 BeginContext(299, 27, true);
                 WriteLiteral("Post a New Source of Income");
                 EndContext();
@@ -181,12 +181,12 @@ WriteAttributeValue("", 646, coloredClass, 646, 13, false);
             WriteLiteral("</p>\r\n                \r\n                        ");
             EndContext();
             BeginContext(928, 373, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ede7365222064f22bfc91336002d6ce6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a069bd0689854832b95ae1ba06f219fc", async() => {
                 BeginContext(998, 30, true);
                 WriteLiteral("\r\n                            ");
                 EndContext();
                 BeginContext(1028, 63, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "51b13263354d4e36ab37d506d02be11a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "690a3b3c11254fafa211898e0d0ebaa5", async() => {
                     BeginContext(1070, 13, true);
                     WriteLiteral("Detail Mode: ");
                     EndContext();
@@ -213,7 +213,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n                            ");
                 EndContext();
                 BeginContext(1121, 79, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ee4e4b17e8c844a9b58db3791f8b0b10", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b878f8ea44884fab94d407c768f2da99", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
