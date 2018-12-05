@@ -63,7 +63,7 @@ using Budget_Manager.Models;
             WriteLiteral("<h2>Personal Budget Manager and Tracker</h2>\r\n\r\n");
             EndContext();
             BeginContext(93, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f6e529ee27c429f94b02e0d6c794508", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "363be60f7c51421d81a508343a952681", async() => {
                 BeginContext(156, 19, true);
                 WriteLiteral("Create a new Budget");
                 EndContext();
@@ -88,7 +88,7 @@ using Budget_Manager.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(181, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b8ead8584134b6aa5e25ce36ad90bf8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e55ee4ae01244b239222eb46ade8b5f7", async() => {
                 BeginContext(240, 23, true);
                 WriteLiteral("Select a Current Budget");
                 EndContext();

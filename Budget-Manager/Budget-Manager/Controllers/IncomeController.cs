@@ -20,9 +20,7 @@ namespace Budget_Manager.Controllers {
             iPost.Results = incomeDAL.GetAllPosts(GetTempBudgetID());
             return View(iPost);
         }
-        //public IActionResult BudgetSelect(BudgetPost bPost) {
-        //    return RedirectToAction("Index", "Income", bPost.BudgetId);
-        //}
+        
         [HttpGet]
         public IActionResult NewIncome() {
             IncomePost newIncome = new IncomePost();
